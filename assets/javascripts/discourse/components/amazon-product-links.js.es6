@@ -1,6 +1,6 @@
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 import discourseComputed from "discourse-common/utils/decorators";
-
+let is_member = true;
 const data = {
   "topic-list-top": {},
   "topic-above-post-stream": {},
@@ -147,6 +147,10 @@ export default AdComponent.extend({
   ),
 
   init() {
+    if (Discourse.User.current() == null) {
+      is_member = false;
+    }
+
     let placement = this.get("placement");
     this.set("user_input", data[placement]["user_input"]);
     this.set("amazon_width", data[placement]["amazon_width"]);
@@ -192,11 +196,6 @@ export default AdComponent.extend({
 
   @discourseComputed("postNumber")
   showAfterPost(postNumber) {
-    let is_member = true;
-    if (Discourse.User.current() == null) {
-      is_member = false;
-    }
-
     if (!postNumber) {
       return;
     } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {

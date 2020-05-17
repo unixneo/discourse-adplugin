@@ -148,12 +148,10 @@ export default AdComponent.extend({
 
   didInsertElement() {
     this._super();
-
     let is_member = true;
     if (Discourse.User.current() == null) {
       is_member = false;
     }
-
     if (!this.get("showAd")) {
       return;
     } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {
@@ -218,7 +216,19 @@ export default AdComponent.extend({
     "showOnCurrentPage"
   )
   showAd(showToTrustLevel, showToGroups, showAfterPost, showOnCurrentPage) {
+    let is_member = true;
+    if (Discourse.User.current() == null) {
+      is_member = false;
+    }
+    console.log(
+      "adsense",
+      is_member,
+      this.siteSettings.neo_disable_ads_for_members,
+      this.siteSettings.adsense_disable_ads_neo
+    );
     return (
+      !(is_member && this.siteSettings.neo_disable_ads_for_members) &&
+      !this.siteSettings.adsense_disable_ads_neo &&
       this.siteSettings.adsense_publisher_code &&
       showToTrustLevel &&
       showToGroups &&

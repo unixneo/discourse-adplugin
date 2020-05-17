@@ -1,18 +1,20 @@
 en:
   js:
     adplugin:
-      advertisement_label: 'ADVERTISEMENT'
+      advertisement_label: "ADVERTISEMENT"
   admin_js:
     admin:
       site_settings:
         categories:
-          ad_plugin: 'Ad Plugin'
-          dfp_plugin: 'DFP/Ad Manager'
-          adsense_plugin: 'AdSense'
-          amazon_plugin: 'Amazon'
-          codefund_plugin: 'CodeFund'
-          carbonads_plugin: 'Carbon Ads'
-          adbutler_plugin: 'AdButler'
+          neo_switches: "Kill Switches"
+          neo_house: "Neo House"
+          ad_plugin: "Ad Plugin"
+          dfp_plugin: "DFP/Ad Manager"
+          adsense_plugin: "AdSense"
+          amazon_plugin: "Amazon"
+          codefund_plugin: "CodeFund"
+          carbonads_plugin: "Carbon Ads"
+          adbutler_plugin: "AdButler"
       adplugin:
         house_ads:
           title: "House Ads"

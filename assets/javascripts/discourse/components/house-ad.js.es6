@@ -8,6 +8,11 @@ const adIndex = {
   post_bottom: null,
 };
 
+let is_member = true;
+if (Discourse.User.current() == null) {
+  is_member = false;
+}
+
 export default AdComponent.extend({
   classNames: ["house-creative"],
   classNameBindings: ["adUnitClass"],
@@ -33,7 +38,17 @@ export default AdComponent.extend({
   )
   showAd(showToTrustLevel, showToGroups, showAfterPost, showOnCurrentPage) {
     return (
-      showToTrustLevel && showToGroups && showAfterPost && showOnCurrentPage
+      showToTrustLevel &&
+      showToGroups &&
+      showAfterPost &&
+      showOnCurrentPage &&
+      !(is_member && this.siteSettings.neo_disable_ads_for_members) &&
+      !(
+        this.site.mobileView && this.siteSettings.neo_house_disable_mobile_ads
+      ) &&
+      !(
+        !this.site.mobileView && this.siteSettings.neo_house_disable_desktop_ads
+      )
     );
   },
 
@@ -95,11 +110,6 @@ export default AdComponent.extend({
 
   didInsertElement() {
     this._super(...arguments);
-
-    let is_member = true;
-    if (Discourse.User.current() == null) {
-      is_member = false;
-    }
 
     if (!this.get("showAd")) {
       return;

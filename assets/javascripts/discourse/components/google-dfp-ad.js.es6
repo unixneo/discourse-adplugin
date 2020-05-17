@@ -1,6 +1,11 @@
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 import discourseComputed, { on } from "discourse-common/utils/decorators";
 import loadScript from "discourse/lib/load-script";
+let is_member = true;
+
+if (Discourse.User.current() == null) {
+  is_member = false;
+}
 
 let _loaded = false,
   _promise = null,
@@ -323,7 +328,10 @@ export default AdComponent.extend({
   @discourseComputed("currentUser.trust_level")
   showToTrustLevel(trustLevel) {
     return !(
-      trustLevel && trustLevel > this.siteSettings.dfp_through_trust_level
+      !(is_member && this.siteSettings.neo_disable_ads_for_members) &&
+      !this.siteSettings.dfp_disable_ads_neo &&
+      trustLevel &&
+      trustLevel > this.siteSettings.dfp_through_trust_level
     );
   },
 
@@ -374,11 +382,6 @@ export default AdComponent.extend({
   _initGoogleDFP() {
     if (Ember.testing) {
       return; // Don't load external JS during tests
-    }
-
-    let is_member = true;
-    if (Discourse.User.current() == null) {
-      is_member = false;
     }
 
     if (!this.get("showAd")) {

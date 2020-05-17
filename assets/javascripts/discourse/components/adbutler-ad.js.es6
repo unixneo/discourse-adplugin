@@ -9,6 +9,11 @@ let _loaded = false,
   _promise = null,
   _c = 0;
 
+let is_member = true;
+if (Discourse.User.current() == null) {
+  is_member = false;
+}
+
 function loadAdbutler() {
   if (_loaded) {
     return Ember.RSVP.resolve();
@@ -134,16 +139,13 @@ export default AdComponent.extend({
       showToTrustLevel &&
       showToGroups &&
       showAfterPost &&
-      showOnCurrentPage
+      showOnCurrentPage &&
+      !(is_member && this.siteSettings.neo_disable_ads_for_members)
     );
   },
 
   @discourseComputed("postNumber")
   showAfterPost(postNumber) {
-    let is_member = true;
-    if (Discourse.User.current() == null) {
-      is_member = false;
-    }
     if (!postNumber) {
       return;
     } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {
