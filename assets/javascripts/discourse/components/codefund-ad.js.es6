@@ -18,7 +18,7 @@ function loadCodeFund() {
 
   const url = "https://codefund.io/properties/" + propertyId + "/funder.json";
 
-  _promise = new Promise(function(resolve, reject) {
+  _promise = new Promise(function (resolve, reject) {
     let xhr = new XMLHttpRequest();
 
     xhr.open("GET", url);
@@ -69,13 +69,13 @@ export default AdComponent.extend({
 
     this.set("adRequested", true);
     loadCodeFund()
-      .then(data => {
+      .then((data) => {
         _loaded = false;
         _promise = null;
         this.set("adDetails", data);
         this.set("adRequested", false);
       })
-      .catch(error => {
+      .catch((error) => {
         // eslint-disable-next-line no-console
         console.log(error);
       });
@@ -84,7 +84,14 @@ export default AdComponent.extend({
   didInsertElement() {
     this._super();
 
+    let is_member = true;
+    if (Discourse.User.current() == null) {
+      is_member = false;
+    }
+
     if (!this.get("showAd")) {
+      return;
+    } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {
       return;
     }
 
@@ -135,5 +142,5 @@ export default AdComponent.extend({
     }
 
     return this.isNthPost(parseInt(this.siteSettings.codefund_nth_post, 10));
-  }
+  },
 });

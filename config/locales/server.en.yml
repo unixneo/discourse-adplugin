@@ -1,6 +1,10 @@
 en:
   site_settings:
+    neo_ads_enabled: "Enable Neo ads?"
+    neo_disable_ads_for_members: "Disable all ads for members?"
     no_ads_for_personal_messages: "Don't show ads when viewing personal messages"
+    neo_house_through_trust_level: "Serve house ads though this trust level"
+    neo_house_disable_mobile_ads: "Disable house mobile ads"
     no_ads_for_restricted_categories: "Don't show ads in categories that aren't visible to everyone."
     no_ads_for_groups: "Don't show ads to users in these groups."
     no_ads_for_categories: "Don't show ads on topic list and topic pages belonging to these categories."

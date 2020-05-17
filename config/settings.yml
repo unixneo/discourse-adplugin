@@ -1,4 +1,17 @@
 ad_plugin:
+  neo_ads_enabled:
+    client: true
+    default: false
+  neo_disable_ads_for_members:
+    client: true
+    default: true
+  neo_house_through_trust_level:
+    client: true
+    default: 2
+    enum: "TrustLevelSetting"
+  neo_house_disable_mobile_ads:
+    client: true
+    default: true
   no_ads_for_personal_messages:
     client: true
     default: true

@@ -5,7 +5,7 @@ const data = {
   "topic-list-top": {},
   "topic-above-post-stream": {},
   "topic-above-suggested": {},
-  "post-bottom": {}
+  "post-bottom": {},
 };
 
 if (
@@ -192,10 +192,17 @@ export default AdComponent.extend({
 
   @discourseComputed("postNumber")
   showAfterPost(postNumber) {
+    let is_member = true;
+    if (Discourse.User.current() == null) {
+      is_member = false;
+    }
+
     if (!postNumber) {
-      return true;
+      return;
+    } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {
+      return;
     }
 
     return this.isNthPost(parseInt(this.siteSettings.amazon_nth_post_code, 10));
-  }
+  },
 });

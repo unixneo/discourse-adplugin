@@ -5,7 +5,7 @@ const adIndex = {
   topic_list_top: null,
   topic_above_post_stream: null,
   topic_above_suggested: null,
-  post_bottom: null
+  post_bottom: null,
 };
 
 export default AdComponent.extend({
@@ -18,9 +18,23 @@ export default AdComponent.extend({
     return showAd ? `house-${placement}` : "";
   },
 
-  @discourseComputed("showToGroups", "showAfterPost", "showOnCurrentPage")
-  showAd(showToGroups, showAfterPost, showOnCurrentPage) {
-    return showToGroups && showAfterPost && showOnCurrentPage;
+  @discourseComputed("currentUser.trust_level")
+  showToTrustLevel(trustLevel) {
+    return !(
+      trustLevel && trustLevel > this.siteSettings.neo_house_through_trust_level
+    );
+  },
+
+  @discourseComputed(
+    "showToTrustLevel",
+    "showToGroups",
+    "showAfterPost",
+    "showOnCurrentPage"
+  )
+  showAd(showToTrustLevel, showToGroups, showAfterPost, showOnCurrentPage) {
+    return (
+      showToTrustLevel && showToGroups && showAfterPost && showOnCurrentPage
+    );
   },
 
   @discourseComputed("postNumber")
@@ -82,22 +96,33 @@ export default AdComponent.extend({
   didInsertElement() {
     this._super(...arguments);
 
+    let is_member = true;
+    if (Discourse.User.current() == null) {
+      is_member = false;
+    }
+
     if (!this.get("showAd")) {
+      return;
+    } else if (is_member && this.siteSettings.neo_disable_ads_for_members) {
+      return;
+    } else if (
+      this.site.mobileView &&
+      this.siteSettings.neo_house_disable_mobile_ads
+    ) {
       return;
     }
 
     if (this.get("listLoading")) {
       return;
     }
-
     if (adIndex.topic_list_top === null) {
       // start at a random spot in the ad inventory
-      Object.keys(adIndex).forEach(placement => {
+      Object.keys(adIndex).forEach((placement) => {
         const adNames = this.adsNamesForSlot(placement);
         adIndex[placement] = Math.floor(Math.random() * adNames.length);
       });
     }
 
     this.refreshAd();
-  }
+  },
 });

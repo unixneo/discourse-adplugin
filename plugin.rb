@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-# name: discourse-adplugin
-# about: Ad Plugin for Discourse
-# version: 1.2.5
-# authors: Vi and Sarah (@ladydanger and @cyberkoi)
-# url: https://github.com/discourse/discourse-adplugin
+# name: neo-discourse-ads
+# about: A NOT Official Ad Plugin for Discourse 
+# version: 1.2.6.15
+# authors: Vi, Sarah (@ladydanger and @cyberkoi) and Neo
+# url: https://github.com/unixneo/discourse-adplugin
+
+enabled_site_setting :neo_ads_enabled
 
 register_asset "stylesheets/adplugin.scss"
 
