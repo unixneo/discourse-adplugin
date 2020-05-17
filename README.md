@@ -4,7 +4,9 @@ This is the NOT official Discourse advertising plugin. It is a WIP by neo@unix.c
 
 ### Cloned from original, official plugin (avoiding PR errors during WIP):
 
+```
 https://github.com/discourse/discourse-adplugin
+```
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
