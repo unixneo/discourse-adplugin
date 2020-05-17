@@ -4,7 +4,7 @@ import discourseComputed, { observes } from "discourse-common/utils/decorators";
 const adConfig = Ember.Object.create({
   "revive-ad": {
     settingPrefix: "revive",
-    enabledSetting: "revive_enabled",
+    enabledSetting: "revive_zone_id",
     desktop: {
       "topic-list-top": "revive_topic_list_zone_id",
       "post-bottom": "revive_post_bottom_zone_id",
@@ -80,6 +80,7 @@ const adConfig = Ember.Object.create({
   },
 });
 
+console.log("ad-slot", adConfig);
 const displayCounts = {
   houseAds: 0,
   allAds: 0,
@@ -146,11 +147,12 @@ export default AdComponent.extend({
           this.siteSettings[name] !== false &&
           !Ember.isBlank(this.siteSettings[name])
         ) {
+          console.log("adnetwork push", adNetwork);
           types.push(adNetwork);
         }
       }
     });
-
+    console.log("adslot types", types);
     return types;
   },
 

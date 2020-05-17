@@ -3,8 +3,9 @@ import discourseComputed from "discourse-common/utils/decorators";
 
 const serve_id = Discourse.SiteSettings.revive_serve_id;
 const zone_id = Discourse.SiteSettings.revive_zone_id;
-placement = Discourse.SiteSettings.revive_placement;
+const placement = Discourse.SiteSettings.revive_placement;
 
+console.log("revive", zone_id);
 export default AdComponent.extend({
   init() {
     this.set("serve_id", serve_id);

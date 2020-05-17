@@ -10,7 +10,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.6.17
+**Version**: 1.2.6.18
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -20,7 +20,8 @@ https://github.com/discourse/discourse-adplugin
 
 ### Versions
 
-- Version 1.2.6.17 17 May 2020, WIP: Revive ad server component
+- Version 1.2.6.18 17 May 2020, WIP: Revive ad server component CORS roadblock
+- Version 1.2.6.17 17 May 2020, WIP: Revive ad server component begin
 - Version 1.2.6.16 17 May 2020, ADD: Settings, on/off switches and more (house, adsense, dfp)
 - Version 1.2.6.14 17 May 2020, FIX: change repo name to discourse-adplugin (harded coded into plugin by original authors)
 - Version 1.2.6.13 17 May 2020, FIX: ember registration conflict (2)
@@ -40,6 +41,8 @@ https://github.com/discourse/discourse-adplugin
 
 ### TODO
 
+- Debug CORS issues with Revive ad server (CORS in general)
+- Remove hard coded paths dependant on name of plugi
 - Debug logic issue with adsense on/off switch
 - Remove hard coded paths dependant on name of plugin by original authors
 - Fix CORS issue with house ads with script tags.

@@ -26,7 +26,7 @@ revive_ads:
     default: 62
   revive_placement:
     client: true
-    default: ""
+    default: "topic-list-top"
   revive_through_trust_level:
     client: true
     default: 2
