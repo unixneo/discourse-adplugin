@@ -17,7 +17,35 @@ neo_switches:
   dfp_disable_ads_neo:
     client: false
     default: false
-
+revive_ads:
+  revive_enabled:
+    client: true
+    default: true
+  revive_zone_id:
+    client: true
+    default: 62
+  revive_placement:
+    client: true
+    default: ""
+  revive_through_trust_level:
+    client: true
+    default: 2
+    enum: "TrustLevelSetting"
+  revive_topic_list_top_zone_id:
+    client: true
+    default: 62
+  revive_above_post_stream_zone_id:
+    client: true
+    default: 62
+  revive_post_bottom_zone_id:
+    client: true
+    default: 62
+  revive_topic_above_suggested_zone_id:
+    client: true
+    default: 62
+  revive_serve_id:
+    client: true
+    default: ""
 neo_house:
   house_ads_after_nth_post:
     client: true

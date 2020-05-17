@@ -113,6 +113,16 @@ en:
     carbonads_topic_list_top_enabled: "Show an ad above the topic list"
     carbonads_above_post_stream_enabled: "Show an ad above the post stream"
 
+    revive_enabled: "Enable Revive Adserver?"
+    revive_zone_id: "Your Revive Ads Zone ID"
+    revive_placement: "Your Revive  Ads Placement"
+    revive_through_trust_level: "Show your revive ads to users based on trust levels. Users with trust level higher than this value will not see ads."
+    revive_topic_list_top_zone_id: "Topic list zone id"
+    revive_above_post_stream_zone_id: "Topic steam zone id"
+    revive_post_bottom_zone_id: "Post bottom zone id"
+    revive_topic_above_suggested_zone_id: "Topic above suggested zone id"
+    revive_serve_id: "Your Revive Ads Serve ID (obsolete)"
+
     adbutler_publisher_id: "AdButler Publisher ID. NOTE: You may need to update the 'content security policy script src' setting. See <a href='https://meta.discourse.org/t/33734' target='_blank'>this topic</a> for the latest instructions."
     adbutler_mobile_topic_list_top_zone_id: "Zone ID for mobile topic list top location"
     adbutler_mobile_topic_above_post_stream_zone_id: "Zone ID for mobile topic above post stream location"
