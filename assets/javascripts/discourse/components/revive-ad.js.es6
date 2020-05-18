@@ -8,11 +8,13 @@ const placement = Discourse.SiteSettings.revive_placement;
 Discourse.SiteSettings.discourse_enable_cors = true;
 Discourse.SiteSettings.discourse_cors_origin = "*";
 console.log("revive", Discourse.SiteSettings);
+console.log("revive-ad zoneid", zone_id);
 export default AdComponent.extend({
   init() {
     this.set("serve_id", serve_id);
     this.set("zone_id", zone_id);
     this._super();
+    console.log("revive ads: ", Discourse);
   },
 
   @discourseComputed("serve_id")

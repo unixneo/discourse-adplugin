@@ -33,5 +33,7 @@ export default {
 
     Discourse.SiteSettings.discourse_enable_cors = true;
     Discourse.SiteSettings.discourse_cors_origin = "*";
+    let myHeaders = new Headers();
+    myHeaders.append("Access-Control-Allow-Origin", "*");
   },
 };

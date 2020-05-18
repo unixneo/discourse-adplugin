@@ -1,11 +1,13 @@
 en:
   site_settings:
     neo_ads_enabled: "Enable Neo ads plugin?"
+    neo_revive_only: "Enable Revive only?"
     neo_disable_ads_for_members: "Disable all ads for members?"
     no_ads_for_personal_messages: "Don't show ads when viewing personal messages"
     neo_house_through_trust_level: "Serve house ads though this trust level"
     neo_house_disable_mobile_ads: "Disable house mobile ads"
     neo_house_disable_desktop_ads: "Disable house desktop ads"
+    neo_house_enable_ads: "Enable house ads?"
     no_ads_for_restricted_categories: "Don't show ads in categories that aren't visible to everyone."
     no_ads_for_groups: "Don't show ads to users in these groups."
     no_ads_for_categories: "Don't show ads on topic list and topic pages belonging to these categories."
@@ -115,9 +117,11 @@ en:
 
     revive_enabled: "Enable Revive Adserver?"
     revive_zone_id: "Your Revive Ads Zone ID"
+
     revive_placement: "Your Revive  Ads Placement"
     revive_through_trust_level: "Show your revive ads to users based on trust levels. Users with trust level higher than this value will not see ads."
-    revive_topic_list_top_zone_id: "Topic list zone id"
+    revive_topic_list_zone_id: "Topic list zone id"
+    revive_discovery_list_container_top_zone_id: "Discover list container zone id"
     revive_above_post_stream_zone_id: "Topic steam zone id"
     revive_post_bottom_zone_id: "Post bottom zone id"
     revive_topic_above_suggested_zone_id: "Topic above suggested zone id"

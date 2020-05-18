@@ -2,7 +2,13 @@ neo_switches:
   neo_ads_enabled:
     client: true
     default: false
+  neo_revive_only:
+    client: true
+    default: false
   neo_disable_ads_for_members:
+    client: true
+    default: true
+  neo_house_enable_ads:
     client: true
     default: true
   neo_house_disable_mobile_ads:
@@ -31,7 +37,10 @@ revive_ads:
     client: true
     default: 2
     enum: "TrustLevelSetting"
-  revive_topic_list_top_zone_id:
+  revive_discovery_list_container_top_zone_id:
+    client: true
+    default: 62
+  revive_topic_list_zone_id:
     client: true
     default: 62
   revive_above_post_stream_zone_id:

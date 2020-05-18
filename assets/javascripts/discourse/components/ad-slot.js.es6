@@ -1,11 +1,28 @@
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
-const adConfig = Ember.Object.create({
+const adConfig_revive = Ember.Object.create({
   "revive-ad": {
     settingPrefix: "revive",
     enabledSetting: "revive_zone_id",
     desktop: {
+      "discovery-list-container-top":
+        Discourse.SiteSettings.revive_discovery_list_container_top_zone_id,
+      "topic-list-top": "revive_topic_list_zone_id",
+      "post-bottom": "revive_post_bottom_zone_id",
+      "topic-above-post-stream": "revive_above_post_stream_zone_id",
+      "topic-above-suggested": "revive_topic_above_suggested_zone_id",
+    },
+  },
+});
+
+const adConfig_all = Ember.Object.create({
+  "revive-ad": {
+    settingPrefix: "revive",
+    enabledSetting: "revive_zone_id",
+    desktop: {
+      "discovery-list-container-top":
+        "revive_discovery_list_container_top_zone_id",
       "topic-list-top": "revive_topic_list_zone_id",
       "post-bottom": "revive_post_bottom_zone_id",
       "topic-above-post-stream": "revive_above_post_stream_zone_id",
@@ -80,6 +97,13 @@ const adConfig = Ember.Object.create({
   },
 });
 
+let adConfig = "";
+if (Discourse.SiteSettings.neo_revive_only) {
+  adConfig = adConfig_revive;
+} else {
+  adConfig = adConfig_all;
+}
+
 console.log("ad-slot", adConfig);
 const displayCounts = {
   houseAds: 0,
@@ -108,6 +132,10 @@ export default AdComponent.extend({
         (!postNumber ||
           this.isNthPost(parseInt(houseAds.settings.after_nth_post, 10)))
       ) {
+        console.log(
+          "house-ad push postnumber: ",
+          this.isNthPost(parseInt(houseAds.settings.after_nth_post, 10))
+        );
         types.push("house-ad");
       }
     }
@@ -117,6 +145,7 @@ export default AdComponent.extend({
       let settingNames = null,
         name;
 
+      console.log("ad-slot config", config);
       if (
         ((config.enabledSetting &&
           !Ember.isBlank(this.siteSettings[config.enabledSetting])) ||
@@ -147,12 +176,12 @@ export default AdComponent.extend({
           this.siteSettings[name] !== false &&
           !Ember.isBlank(this.siteSettings[name])
         ) {
-          console.log("adnetwork push", adNetwork);
+          //console.log("adnetwork push", adNetwork, this.siteSettings);
           types.push(adNetwork);
         }
       }
     });
-    console.log("adslot types", types);
+    //console.log("adslot types", types);
     return types;
   },
 
@@ -190,10 +219,16 @@ export default AdComponent.extend({
     const houseAds = this.site.get("house_creatives");
     let houseAdsSkipped = false;
 
-    if (houseAds.settings.house_ads_frequency === 100) {
+    if (
+      houseAds.settings.house_ads_frequency === 100 &&
+      Discourse.SiteSettings.neo_house_enable_ads
+    ) {
       // house always wins
       return ["house-ad"];
-    } else if (houseAds.settings.house_ads_frequency > 0) {
+    } else if (
+      houseAds.settings.house_ads_frequency > 0 &&
+      Discourse.SiteSettings.neo_house_enable_ads
+    ) {
       // show house ads the given percent of the time
       if (
         displayCounts.allAds === 0 ||

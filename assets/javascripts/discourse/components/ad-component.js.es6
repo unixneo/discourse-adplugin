@@ -58,13 +58,13 @@ export default Ember.Component.extend({
 
     let currentGroups = groups;
     if (groupListUseIDs) {
-      currentGroups = currentGroups.map(g => g.id.toString());
+      currentGroups = currentGroups.map((g) => g.id.toString());
     } else {
-      currentGroups = currentGroups.map(g => g.name.toLowerCase());
-      noAdsGroups = noAdsGroups.map(g => g.toLowerCase());
+      currentGroups = currentGroups.map((g) => g.name.toLowerCase());
+      noAdsGroups = noAdsGroups.map((g) => g.toLowerCase());
     }
 
-    return !currentGroups.any(g => noAdsGroups.includes(g));
+    return !currentGroups.any((g) => noAdsGroups.includes(g));
   },
 
   @discourseComputed(
@@ -99,9 +99,14 @@ export default Ember.Component.extend({
 
   isNthPost(n) {
     if (n && n > 0) {
+      console.log(
+        "ad-compoent - isNthPost: ",
+        this.get("postNumber"),
+        discourseComputed
+      );
       return this.get("postNumber") % n === 0;
     } else {
       return false;
     }
-  }
+  },
 });
