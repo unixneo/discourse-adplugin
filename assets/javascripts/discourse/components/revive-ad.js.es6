@@ -5,7 +5,9 @@ const serve_id = Discourse.SiteSettings.revive_serve_id;
 const zone_id = Discourse.SiteSettings.revive_zone_id;
 const placement = Discourse.SiteSettings.revive_placement;
 
-console.log("revive", zone_id);
+Discourse.SiteSettings.discourse_enable_cors = true;
+Discourse.SiteSettings.discourse_cors_origin = "*";
+console.log("revive", Discourse.SiteSettings);
 export default AdComponent.extend({
   init() {
     this.set("serve_id", serve_id);

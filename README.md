@@ -4,13 +4,15 @@ This is the NOT official Discourse advertising plugin. It is a WIP by neo@unix.c
 
 ### Cloned from original, official plugin (avoiding PR errors during WIP):
 
+### Status: Problem with CORS in dev
+
 ```
 https://github.com/discourse/discourse-adplugin
 ```
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.6.18
+**Version**: 1.2.6.19
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -20,6 +22,7 @@ https://github.com/discourse/discourse-adplugin
 
 ### Versions
 
+- Version 1.2.6.19 18 May 2020, WIP: Debug CORS roadblock (site settings)
 - Version 1.2.6.18 17 May 2020, WIP: Revive ad server component CORS roadblock
 - Version 1.2.6.17 17 May 2020, WIP: Revive ad server component begin
 - Version 1.2.6.16 17 May 2020, ADD: Settings, on/off switches and more (house, adsense, dfp)
