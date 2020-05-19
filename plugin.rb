@@ -2,11 +2,7 @@
 
 # name: discourse-adplugin
 # about: A NOT Official Ad Plugin for Discourse 
-<<<<<<< HEAD
 # version: 1.2.7.3.1
-=======
-# version: 1.2.7.3
->>>>>>> 6bb4f4ec25519af8088c0fad52041c67c26045df
 # authors: Vi, Sarah (@ladydanger and @cyberkoi) and Neo
 # url: https://github.com/unixneo/discourse-adplugin
 
@@ -14,9 +10,6 @@ enabled_site_setting :neo_ads_enabled
 
 register_asset "stylesheets/adplugin.scss"
 
-if Rails.env == "development"
-  register_asset "stylesheets/neostyle.scss"
-end
 
 add_admin_route 'admin.adplugin.house_ads.title', 'houseAds'
 
