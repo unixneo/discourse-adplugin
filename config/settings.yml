@@ -2,6 +2,9 @@ neo_switches:
   neo_ads_enabled:
     client: true
     default: false
+  neo_ads_admin_only:
+    client: true
+    default: false
   neo_disable_ads_for_members:
     client: true
     default: true

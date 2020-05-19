@@ -1,6 +1,6 @@
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
-
+console.log("ad-slot", Discourse);
 const adIndex = {
   topic_list_top: null,
   topic_above_post_stream: null,
@@ -9,8 +9,16 @@ const adIndex = {
 };
 
 let is_member = true;
+let is_admin = false;
 if (Discourse.User.current() == null) {
   is_member = false;
+} else if (Discourse.User.current.admin) {
+  is_admin = true;
+}
+
+let show_users = true;
+if (Discourse.SiteSettings["neo_ads_admin_only"] && !is_admin) {
+  show_users = false;
 }
 
 export default AdComponent.extend({
@@ -42,13 +50,14 @@ export default AdComponent.extend({
       showToGroups &&
       showAfterPost &&
       showOnCurrentPage &&
-      !(is_member && this.siteSettings.neo_disable_ads_for_members) &&
+      !(this.is_member && this.siteSettings.neo_disable_ads_for_members) &&
       !(
         this.site.mobileView && this.siteSettings.neo_house_disable_mobile_ads
       ) &&
       !(
         !this.site.mobileView && this.siteSettings.neo_house_disable_desktop_ads
-      )
+      ) &&
+      show_users
     );
   },
 
