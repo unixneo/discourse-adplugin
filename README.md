@@ -2,6 +2,8 @@
 
 This is the NOT official Discourse advertising plugin. It is a WIP by neo@unix.com for development.
 
+This branch strips out all but "house ads" to use with external ad server (like revive, for example).
+
 ### Cloned from original, official plugin (avoiding PR errors during WIP):
 
 ### Status: Problem with CORS in dev
@@ -12,7 +14,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.7.1
+**Version**: 1.2.7.2
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -22,6 +24,7 @@ https://github.com/discourse/discourse-adplugin
 
 ### Versions
 
+- Version 1.2.7.2 19 May 2020, Test and finish stripping non-house ads, set up dev scss for testing
 - Version 1.2.7.1 19 May 2020, Strip non-house ad code, strip non-english locales
 - Version 1.2.7.0 19 May 2020, Create branch for house ads only
 - Version 1.2.6.19 18 May 2020, WIP: Debug CORS roadblock (site settings)
@@ -47,11 +50,9 @@ https://github.com/discourse/discourse-adplugin
 ### TODO
 
 - Debug CORS issues with Revive ad server (CORS in general)
-- Remove hard coded paths dependant on name of plugi
+- Remove hard coded paths dependant on name of plugin
 - Debug logic issue with adsense on/off switch
 - Remove hard coded paths dependant on name of plugin by original authors
 - Fix CORS issue with house ads with script tags.
-- Setting disable ads for carbon ads.
 - Fix mobile house ads (currently not working properly).
-- Disable ads for members setting for all ad types.
 - Fix ad placement errors (poor placements) in CSS/HTML
