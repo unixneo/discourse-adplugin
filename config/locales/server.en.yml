@@ -2,6 +2,7 @@ en:
   site_settings:
     neo_ads_enabled: "Enable Neo ads plugin?"
     neo_ads_admin_only: "Enable for admin only?"
+    neo_house_debug: "Enable debug mode (console.log)?"
     neo_disable_ads_for_members: "Disable all ads for members?"
     no_ads_for_personal_messages: "Don't show ads when viewing personal messages"
     neo_house_through_trust_level: "Serve house ads though this trust level"

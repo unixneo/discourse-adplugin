@@ -75,13 +75,48 @@ export default AdComponent.extend({
     const houseAds = this.site.get("house_creatives"),
       placement = this.get("placement").replace(/-/g, "_"),
       adNames = this.adsNamesForSlot(placement);
+    var regexs = [/mobile/i];
+    var dAds = adNames.filter(function (adNames) {
+      return !regexs.some(function (regex) {
+        return regex.test(adNames);
+      });
+    });
+    var mAds = adNames.filter(function (adNames) {
+      return regexs.some(function (regex) {
+        return regex.test(adNames);
+      });
+    });
+    var filteredAdNames = [];
+    if (this.site.mobileView) {
+      filteredAdNames = mAds;
+    } else {
+      filteredAdNames = dAds;
+    }
 
-    if (adNames.length > 0) {
+    if (Discourse.SiteSettings.neo_house_debug) {
+      console.log("filteredAdNames", filteredAdNames);
+      console.log("filteredAdNames Len", filteredAdNames.length);
+    }
+    if (filteredAdNames.length > 0) {
       if (!adIndex[placement]) {
         adIndex[placement] = 0;
+        // TODO:  Fix bug here with index due to mobile array changes
       }
-      let ad = houseAds.creatives[adNames[adIndex[placement]]] || "";
-      adIndex[placement] = (adIndex[placement] + 1) % adNames.length;
+
+      if (Discourse.SiteSettings.neo_house_debug) {
+        console.log("adIndex", adIndex);
+        console.log("houseAds.creatives", houseAds.creatives);
+        console.log(
+          "filteredAdNames[adIndex[placement]]",
+          filteredAdNames[adIndex[placement]]
+        );
+      }
+      let ad = houseAds.creatives[filteredAdNames[adIndex[placement]]] || "";
+      adIndex[placement] = (adIndex[placement] + 1) % filteredAdNames.length;
+      if (Discourse.SiteSettings.neo_house_debug) {
+        console.log("adIndex[placement]", adIndex[placement]);
+        console.log("ad", ad);
+      }
       return ad;
     } else {
       return "";
@@ -138,6 +173,8 @@ export default AdComponent.extend({
       Object.keys(adIndex).forEach((placement) => {
         const adNames = this.adsNamesForSlot(placement);
         adIndex[placement] = Math.floor(Math.random() * adNames.length);
+        // TODO:  Fix bug here with index due to mobile array changes
+        adIndex[placement] = 0;
       });
     }
 

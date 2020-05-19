@@ -14,7 +14,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.7.3.1
+**Version**: 1.2.7.4.0
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -22,8 +22,13 @@ https://github.com/discourse/discourse-adplugin
 
 ### REFACTOR: WIP
 
+### Notes
+
+With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads with 'mobile' in the name will be array filtered into the mobile ad array and those without will be filtered into the desktop ad array. This creates a small bug in the randomizer for the array index which needs to be fixed.
+
 ### Version
 
+- Version 1.2.7.4.0 19 May 2020, Added initial code for mobile ads
 - Version 1.2.7.3 19 May 2020, Add "show to admins only" setting for live site testing
 - Version 1.2.7.2 19 May 2020, Test and finish stripping non-house ads, set up dev scss for testing
 - Version 1.2.7.1 19 May 2020, Strip non-house ad code, strip non-english locales
@@ -50,6 +55,7 @@ https://github.com/discourse/discourse-adplugin
 
 ### TODO
 
+- Fix bug in house-ads.js regarding array indexing because of mobile tags
 - Debug CORS issues with Revive ad server (CORS in general)
 - Remove hard coded paths dependant on name of plugin
 - Debug logic issue with adsense on/off switch
