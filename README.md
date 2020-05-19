@@ -1,8 +1,8 @@
-# The NOT Official Discourse Ad Plugin
+# The NOT Official Discourse Revive Ad Server Plugin by Neo (WIP)
 
-This is the NOT official Discourse advertising plugin. It is a WIP by neo@unix.com for development.
+This is the NOT official Discourse ad plugin. It is a WIP by neo@unix.com for development.
 
-This branch strips out all but "house ads" to use with external ad server (like revive, for example).
+This branch strips out all but "house ads" to use with external ad server (like revive, for example) and refines this for use with a single ad server.
 
 ### Cloned from original, official plugin (avoiding PR errors during WIP):
 
