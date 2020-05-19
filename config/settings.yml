@@ -14,6 +14,9 @@ neo_switches:
   neo_house_disable_desktop_ads:
     client: true
     default: true
+  neo_house_debug:
+    client: true
+    default: true
 
 neo_house:
   house_ads_after_nth_post:
