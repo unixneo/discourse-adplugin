@@ -2,7 +2,7 @@ import AdComponent from "discourse/plugins/discourse-adplugin/discourse/componen
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 const adConfig = Ember.Object.create();
-console.log("ad-slot", adConfig);
+
 const displayCounts = {
   houseAds: 0,
   allAds: 0,
@@ -69,12 +69,10 @@ export default AdComponent.extend({
           this.siteSettings[name] !== false &&
           !Ember.isBlank(this.siteSettings[name])
         ) {
-          console.log("adnetwork push", adNetwork);
           types.push(adNetwork);
         }
       }
     });
-    console.log("adslot types", types);
     return types;
   },
 

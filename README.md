@@ -14,7 +14,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.7.2
+**Version**: 1.2.7.3.1
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -22,8 +22,9 @@ https://github.com/discourse/discourse-adplugin
 
 ### REFACTOR: WIP
 
-### Versions
+### Version
 
+- Version 1.2.7.3 19 May 2020, Add "show to admins only" setting for live site testing
 - Version 1.2.7.2 19 May 2020, Test and finish stripping non-house ads, set up dev scss for testing
 - Version 1.2.7.1 19 May 2020, Strip non-house ad code, strip non-english locales
 - Version 1.2.7.0 19 May 2020, Create branch for house ads only
