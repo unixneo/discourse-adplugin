@@ -12,7 +12,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.7.0
+**Version**: 1.2.7.1
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -22,6 +22,8 @@ https://github.com/discourse/discourse-adplugin
 
 ### Versions
 
+- Version 1.2.7.1 19 May 2020, Strip non-house ad code, strip non-english locales
+- Version 1.2.7.0 19 May 2020, Create branch for house ads only
 - Version 1.2.6.19 18 May 2020, WIP: Debug CORS roadblock (site settings)
 - Version 1.2.6.18 17 May 2020, WIP: Revive ad server component CORS roadblock
 - Version 1.2.6.17 17 May 2020, WIP: Revive ad server component begin
