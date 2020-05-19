@@ -2,7 +2,7 @@
 
 # name: discourse-adplugin
 # about: A NOT Official Ad Plugin for Discourse 
-# version: 1.2.6.19
+# version: 1.2.7.0
 # authors: Vi, Sarah (@ladydanger and @cyberkoi) and Neo
 # url: https://github.com/unixneo/discourse-adplugin
 

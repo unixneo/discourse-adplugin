@@ -12,7 +12,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.6.19
+**Version**: 1.2.7.0
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
