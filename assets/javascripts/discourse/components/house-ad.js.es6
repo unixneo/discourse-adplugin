@@ -37,23 +37,6 @@ export default AdComponent.extend({
     );
   },
 
-  export default AdComponent.extend({
-    classNames: ["house-creative-mobile"],
-    classNameBindings: ["adUnitClass"],
-    adHtml: "",
-  
-    @discourseComputed("placement", "showAd")
-    adUnitClass(placement, showAd) {
-      return showAd ? `house-mobile-${placement}` : "";
-    },
-  
-    @discourseComputed("currentUser.trust_level")
-    showToTrustLevel(trustLevel) {
-      return !(
-        trustLevel && trustLevel > this.siteSettings.neo_house_through_trust_level
-      );
-    },
-
   @discourseComputed(
     "showToTrustLevel",
     "showToGroups",
@@ -89,8 +72,6 @@ export default AdComponent.extend({
   },
 
   chooseAdHtml() {
-
-   
     const houseAds = this.site.get("house_creatives"),
       placement = this.get("placement").replace(/-/g, "_"),
       adNames = this.adsNamesForSlot(placement);

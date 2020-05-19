@@ -1,6 +1,17 @@
 @import "common/foundation/variables";
 @import "common/foundation/mixins";
 
+.house-topic-list-top,
+.house-topic-above-post-stream,
+.house-topic-above-suggested,
+.house-post-bottom {
+  background-color: palegreen;
+}
+
+.house-post-bottom {
+  margin-left: -15px !important;
+}
+
 .google-dfp-ad {
   padding: 3px 0;
   margin-bottom: 10px;
