@@ -1,9 +1,5 @@
 import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
-<<<<<<< HEAD
-=======
-console.log("ad-slot", Discourse);
->>>>>>> 6bb4f4ec25519af8088c0fad52041c67c26045df
 const adIndex = {
   topic_list_top: null,
   topic_above_post_stream: null,
