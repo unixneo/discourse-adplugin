@@ -57,9 +57,7 @@ With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads wit
 
 - Fix bug in house-ads.js regarding array indexing because of mobile tags
 - Debug CORS issues with Revive ad server (CORS in general)
-- Remove hard coded paths dependant on name of plugin
-- Debug logic issue with adsense on/off switch
-- Remove hard coded paths dependant on name of plugin by original authors
+- Remove hard coded paths dependant on name of plugin- Remove hard coded paths dependant on name of plugin by original authors
 - Fix CORS issue with house ads with script tags.
 - Fix mobile house ads (currently not working properly).
 - Fix ad placement errors (poor placements) in CSS/HTML
