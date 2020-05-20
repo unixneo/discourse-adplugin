@@ -14,7 +14,7 @@ https://github.com/discourse/discourse-adplugin
 
 **Authors**: [Sarah Ni](https://github.com/cyberkoi) & [Vi Nguyen](https://github.com/ladydanger) & [unixneo](https://github.com/unixneo)
 
-**Version**: 1.2.7.4.1
+**Version**: 1.2.7.5
 
 **Contributors**: See the original repo (link above) for all the prior coders and team
 
@@ -24,10 +24,11 @@ https://github.com/discourse/discourse-adplugin
 
 ### Notes
 
-With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads with 'mobile' in the name will be array filtered into the mobile ad array and those without will be filtered into the desktop ad array. This creates a small bug in the randomizer for the array index which needs to be fixed. Also, need to make ads a computed property so they will change without reload (mobile, desktop). This is a workaround since the Revive ad server does not support fully responsive ads.
+With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads with 'mobile' in the name will be array filtered into the mobile ad array and those without will be filtered into the desktop ad array. Also, need to make ads a computed property so they will change without reload (mobile, desktop). This is a workaround since the Revive ad server does not support fully responsive ads.
 
 ### Version
 
+- Version 1.2.7.5 20 May 2020, FIX: Randomizer with mobile regex filter, paths
 - Version 1.2.7.4.1 20 May 2020, Added initial draft CSS for mobile ads
 - Version 1.2.7.4.0 19 May 2020, Added initial code for mobile ads
 - Version 1.2.7.3 19 May 2020, Add "show to admins only" setting for live site testing
@@ -56,9 +57,9 @@ With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads wit
 
 ### TODO
 
-- Fix bug in house-ads.js regarding array indexing because of mobile tags.
-- Make ads a computed property so they will change without reload (mobile, desktop).
 - Debug CORS issues with Revive ad server (CORS in general).
-- Remove hard coded paths dependant on name of plugin by original authors.
-- Fix mobile house ads (currently not working properly).
+
+### TODO DEAD CODE
+
 - Delete dead CSS code for removed ad networks.
+- Remove dead code(?): templateName: "connectors/post-bottom/discourse-adplugin",

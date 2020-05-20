@@ -1,12 +1,14 @@
 @import "common/foundation/variables";
 @import "common/foundation/mixins";
 
+/* dev debug only
 .house-topic-list-top,
 .house-topic-above-post-stream,
 .house-topic-above-suggested,
 .house-post-bottom {
   background-color: palegreen;
 }
+*/
 
 .house-post-bottom {
   margin-left: -15px !important;

@@ -1,4 +1,4 @@
-import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
+import AdComponent from "../components/ad-component";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 const adIndex = {
   topic_list_top: null,
@@ -75,24 +75,8 @@ export default AdComponent.extend({
     const houseAds = this.site.get("house_creatives"),
       placement = this.get("placement").replace(/-/g, "_"),
       adNames = this.adsNamesForSlot(placement);
-    var regexs = [/mobile/i];
-    var dAds = adNames.filter(function (adNames) {
-      return !regexs.some(function (regex) {
-        return regex.test(adNames);
-      });
-    });
-    var mAds = adNames.filter(function (adNames) {
-      return regexs.some(function (regex) {
-        return regex.test(adNames);
-      });
-    });
-    var filteredAdNames = [];
-    if (this.site.mobileView) {
-      filteredAdNames = mAds;
-    } else {
-      filteredAdNames = dAds;
-    }
-
+    let that = this;
+    let filteredAdNames = filterMobile(adNames, that);
     if (Discourse.SiteSettings.neo_house_debug) {
       console.log("filteredAdNames", filteredAdNames);
       console.log("filteredAdNames Len", filteredAdNames.length);
@@ -172,12 +156,33 @@ export default AdComponent.extend({
       // start at a random spot in the ad inventory
       Object.keys(adIndex).forEach((placement) => {
         const adNames = this.adsNamesForSlot(placement);
-        adIndex[placement] = Math.floor(Math.random() * adNames.length);
-        // TODO:  Fix bug here with index due to mobile array changes
-        adIndex[placement] = 0;
+        let that = this;
+        let filteredAdNames = filterMobile(adNames, that);
+        adIndex[placement] = Math.floor(Math.random() * filteredAdNames.length);
       });
     }
 
     this.refreshAd();
   },
 });
+
+function filterMobile(adNames, that) {
+  var regexs = [/mobile/i];
+  var dAds = adNames.filter(function (adNames) {
+    return !regexs.some(function (regex) {
+      return regex.test(adNames);
+    });
+  });
+  var mAds = adNames.filter(function (adNames) {
+    return regexs.some(function (regex) {
+      return regex.test(adNames);
+    });
+  });
+  var filteredAdNames = [];
+  if (that.site.mobileView) {
+    filteredAdNames = mAds;
+  } else {
+    filteredAdNames = dAds;
+  }
+  return filteredAdNames;
+}

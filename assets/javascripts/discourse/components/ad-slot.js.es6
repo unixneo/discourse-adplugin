@@ -1,4 +1,4 @@
-import AdComponent from "discourse/plugins/discourse-adplugin/discourse/components/ad-component";
+import AdComponent from "../components/ad-component";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 const adConfig = Ember.Object.create();
