@@ -60,7 +60,5 @@ With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads wit
 
 ### TODO DEAD CODE
 
-=======
-
 - Delete dead CSS code for removed ad networks.
 - Remove dead code(?): templateName: "connectors/post-bottom/discourse-adplugin",
