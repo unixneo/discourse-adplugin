@@ -28,8 +28,7 @@ With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads wit
 
 ### Version
 
-- Version 1.2.7.5 20 May 2020, FIX: Randomizer with mobile regex filter, paths
-- Version 1.2.7.4.1 20 May 2020, Added initial draft CSS for mobile ads
+- Version 1.2.7.5 20 May 2020, Fix ad randomizer for mobile, paths.
 - Version 1.2.7.4.0 19 May 2020, Added initial code for mobile ads
 - Version 1.2.7.3 19 May 2020, Add "show to admins only" setting for live site testing
 - Version 1.2.7.2 19 May 2020, Test and finish stripping non-house ads, set up dev scss for testing
@@ -60,6 +59,8 @@ With version 1.2.7.4 can enter both mobile and desktop ads as house ads. Ads wit
 - Debug CORS issues with Revive ad server (CORS in general).
 
 ### TODO DEAD CODE
+
+=======
 
 - Delete dead CSS code for removed ad networks.
 - Remove dead code(?): templateName: "connectors/post-bottom/discourse-adplugin",
