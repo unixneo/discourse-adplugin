@@ -12,11 +12,26 @@
   margin-left: -15px !important;
 }
 
+.house-above-post-stream-mobile {
+  margin-top: 10px !important;
+}
+.house-topic-list-top-mobile {
+  margin-bottom: 10px !important;
+}
 .house-topic-list-top-mobile,
-.house-topic-list-top-mobile-iframe {
+.house-topic-list-top-mobile-iframe,
+.house-above-post-stream-mobile,
+.house-above-post-stream-mobile-iframe,
+.house-post-bottom-mobile,
+.house-post-bottom-mobile-iframe,
+.house-above-topic-suggested-mobile,
+.house-above-topic-suggested-mobile-iframe {
   margin: 0 auto;
 }
-.house-topic-list-top-mobile-iframe {
+.house-topic-list-top-mobile-iframe,
+.house-above-post-stream-mobile-iframe,
+.house-post-bottom-mobile-iframe,
+.house-above-topic-suggested-mobile-iframe {
   display: block;
 }
 
